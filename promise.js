@@ -39,6 +39,8 @@ myPromise.prototype.then = function (onFullfilled, onRejected) {
     }
 }
 
+
+// test code
 var p = new myPromise(function(resolve,reject){resolve(1)});
 
 p.then(function(x){console.log(x)})

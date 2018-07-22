@@ -13,7 +13,7 @@ var Event = {
         })
     }
 }
-
+// test code
 Event.on('test',function(result){
     console.log(result);
 });
