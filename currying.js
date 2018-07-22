@@ -1,3 +1,9 @@
+/*
+ * @Author: RocWong 
+ * @Date: 2018-07-22 16:05:45 
+ * @Last Modified by:   RocWong 
+ * @Last Modified time: 2018-07-22 16:05:45 
+ */
 
 /**
  * 柯里化的通用实现
