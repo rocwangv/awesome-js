@@ -1,3 +1,10 @@
+/*
+ * @Author: RocWong 
+ * @Date: 2018-07-22 16:05:18 
+ * @Last Modified by:   RocWong 
+ * @Last Modified time: 2018-07-22 16:05:18 
+ */
+
 function myPromise(constructor) {
     let self = this;
     self.status = 'pending';
