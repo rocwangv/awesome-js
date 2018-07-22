@@ -1,3 +1,10 @@
+/*
+ * @Author: RocWong 
+ * @Date: 2018-07-22 16:04:44 
+ * @Last Modified by:   RocWong 
+ * @Last Modified time: 2018-07-22 16:04:44 
+ */
+
 var Event = {
     on: function (evtName, callback) {
         if (!this.handlers) this.handlers = {};
