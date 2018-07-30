@@ -20,5 +20,5 @@
         if (!money || !parseFloat(money)) return '0.00';
         if (money.toString().includes(',')) return money;
         money = parseFloat(money).toFixed(2).toString();
-        return money.replace(/\B\d{3}/g, ',$&');
+        return money.replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
     }
