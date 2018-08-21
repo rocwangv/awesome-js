@@ -1,1 +1,1 @@
-# js-interview
+# awesome-js
