@@ -37,3 +37,57 @@
         return fN;
     }
 ```
+
+## 题目二：
+>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+
+可以把n级台阶时的跳法看成是n的函数，记为f(n)。当n>2时，第一次跳的时候就有两种不同的选择：一是第一次只跳1级，此时跳法数目等于后面剩下的n-1级台阶的跳法数目，即为f(n-1);另一种选择是第一次跳2级，此时跳法数目等于后面剩下n-2级台阶的跳法数目，即为f(n-2)。因此，n级台阶的不同跳法的总数f(n)=f(n-1)+f(n-2)。分析到这里，不难看出这实际上就是斐波那契数列了。
+
+与斐波那契数列不同的是，其初始值定义稍有不同， 
+当n=1时，只能跳一级台阶，一种跳法 
+当n=2时，一次跳一级或两级，两种跳法 
+所以，关于青蛙跳台阶的定义如下：
+
+```js
+f(1) = 1;
+f(2) = 2;
+f(n) = f(n-1)+f(n-2),n>2;
+```
+
+* 非递归写法：
+
+```js
+    function frogJump12Step(n){
+        if(n<=0){
+            throw new Error("param err");  
+            return -1;
+        }
+        if(n===1) return 1;
+        if(n===2) return 2;
+
+        var frogNMinusOne = 2;//f(n-1)=2
+        var frogNMinusTwo = 1;//f(n-2)=1
+        var frogN = 0;
+
+        for (var i = 3; i <= n;++i){
+            frogN = frogNMinusOne + frogNMinusTwo;
+            frogNMinusTwo = frogNMinusOne;
+            frogNMinusOne = frogN;
+        }
+        return frogN;
+    }
+```
+
+* 递归解法
+
+```js
+    fcuntion frogJump12StepRecursive(int n){
+        if (n <= 0){
+            throw new Error("param err");  
+            return -1;
+        }
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+        return frogJump12StepRecursive(n - 1) + frogJump12StepRecursive(n - 2);
+    }
+```
