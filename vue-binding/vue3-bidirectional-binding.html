@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue 3.0 双向绑定</title>
+  <style>
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    请输入您的姓名：<input type="text" name="username" id="username">
+    <div id="greeting">
+      您好，<span id="result"></span>，欢迎光临 ~
+    </div>
+  </div>
+  <script>
+    isShow();
+
+    const obj = {};
+    const obj1 = new Proxy(obj, {
+      get: function(target, key) {
+        return target[key];
+      },
+      set: function(target, key, newVal, receive) {
+        target[key] = newVal;
+        document.getElementById('result').innerText = newVal;
+        isShow();
+      }
+    })
+
+    function isShow() {
+      const username = document.getElementById('username').value;
+      document.getElementById('greeting').style.display = !!username ? 'block': 'none';
+    }
+
+    document.getElementById('username').addEventListener('input', (e) => {
+      obj1.username =  e.target.value;
+      console.log(obj1);
+    });
+  </script>
+</body>
+</html>
