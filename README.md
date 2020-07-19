@@ -21,5 +21,8 @@
 - [观察者模式](./observer.js)
 - [promise 的基本实现](./promise.js)
 - [阮一峰老师版本的快速排序](./quicklySort.js)
+- [节流](./throttle.js)
+- [防抖](./debounce.js)
+- [模拟new操作符]](./mock-new-operator.js)
 
 > To be continued...
